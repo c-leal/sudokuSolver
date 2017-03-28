@@ -15,16 +15,16 @@ import com.gavant.sudoku.exception.SudokuFileNotFoundException;
  *
  */
 public class SudokuSolverTest {
-	private static final SudokuSolver s = new SudokuSolver();
+	private static final SudokuSolver solver = new SudokuSolver();
 
 	@Test
 	public void testSolvePuzzleWithSuccess(){
 		Sudoku s1 = new Sudoku();
 		s1.initBoard("puzzle1.txt");
-		s.solveSudoku(s1);
+		solver.solveSudoku(s1);
 		
 		//Puzzle solved
-		assertTrue(s.isBoardFull());
+		assertTrue(solver.isBoardFull());
 
 		//Solution file created
 		String filename = s1.createFileFromBoard();
@@ -48,10 +48,10 @@ public class SudokuSolverTest {
 	public void testUnSolvablePuzzle(){
 		Sudoku s4 = new Sudoku();
 		s4.initBoard("unsolvablePuzzle.txt");
-		s.solveSudoku(s4);
+		solver.solveSudoku(s4);
 		
 		//Puzzle unsolved
-		assertTrue(!s.isBoardFull());
+		assertTrue(!solver.isBoardFull());
 	}
 	
 
